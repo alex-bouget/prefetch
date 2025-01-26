@@ -1,3 +1,6 @@
+import '@types/chrome';
+import '@types/firefox-webext-browser';
+
 export {}
 
 declare global {
@@ -5,6 +8,10 @@ declare global {
 
     interface Window {
         prefetch_originalFetch: FetchFunction;
+    }
+
+    interface PrefetchStorage {
+        prefetch_settings: string,
     }
 
     interface PrefetchRule {

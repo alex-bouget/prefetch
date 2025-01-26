@@ -1,9 +1,12 @@
 {
 	"scripts": {
 		"build-content": "browserify ./src/prefetch/main.ts -o dist/build/pages/prefetch.js -p tsify",
+		"build-content-scripted": "browserify ./src/content.ts -o dist/build/content.js -p tsify"
 	},
 	"devDependencies": {
 		"@eslint/js": "^9.19.0",
+		"@types/chrome": "^0.0.299",
+		"@types/firefox-webext-browser": "^120.0.4",
 		"@typescript-eslint/eslint-plugin": "^8.21.0",
 		"@typescript-eslint/parser": "^8.21.0",
 		"browserify": "^17.0.1",
