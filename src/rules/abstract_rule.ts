@@ -1,4 +1,4 @@
-import { Prefetch } from "../content/prefetch";
+import { Prefetch } from "../prefetch/prefetch";
 
 export abstract class AbstractRule<T, U> {
     protected static _name: string = "abstract_rule";

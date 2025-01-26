@@ -1,3 +1,8 @@
+export function regex_filter<U>(to_filter: U[], list: keyof U, payload: string): U[] {
+    return to_filter.filter((c) => {
+        return (c[list] as string[]).some((obj: string) => new RegExp(obj).test(payload));
+    })
+}
 
 export function getUrl(url: RequestInfo | URL) {
     if (typeof url === "string") {

@@ -1,4 +1,4 @@
-import { executePath } from "../content/utils";
+import { executePath } from "../prefetch/utils";
 import { AbstractRule } from "./abstract_rule";
 
 export class AppendMapRule extends AbstractRule<AppendMapData, string> {
@@ -26,9 +26,7 @@ export class AppendMapRule extends AbstractRule<AppendMapData, string> {
             value = Object.fromEntries(value.map((v, i) => [i, v]));
         }
         const result = executePath(json, rule.to);
-        console.log(result);
         Object.assign(result, value);
-        console.log(result);
         return JSON.stringify(json);
     }
 }
