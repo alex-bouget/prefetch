@@ -6,6 +6,11 @@ export {}
 declare global {
     type FetchFunction = (input: RequestInfo | URL, init?: RequestInit) => Promise<Response>;
 
+    interface PayloadBeforeRule {
+        url: RequestInfo | URL,
+        options: RequestInit,
+    }
+
     interface Window {
         prefetch_originalFetch: FetchFunction;
     }

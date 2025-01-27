@@ -1,13 +1,15 @@
 import { AbstractRule } from "../rules/abstract_rule";
-import { AppendMapRule } from "../rules/append_map_rule";
+import { RequestJsonModifierRule, ResponseJsonModifierRule } from "../rules/json_modifier_rule";
 
 export class Prefetch {
     private allRule: Record<string, AbstractRule<any, any>>;
 
     constructor(private fetch: FetchFunction) {
         this.allRule = {
-            [AppendMapRule.rule_name]: new AppendMapRule(this),
+            [RequestJsonModifierRule.rule_name]: new RequestJsonModifierRule(this),
+            [ResponseJsonModifierRule.rule_name]: new ResponseJsonModifierRule(this),
         };
+        console.log("Prefetch initialized", this.allRule);
     }
 
     public get originalFetch(): FetchFunction {
@@ -38,6 +40,7 @@ export class Prefetch {
     private async executeRule<U>(type: string, rule: PrefetchRule, data: U): Promise<U> {
         const ruleInstance = this.allRule[rule.type];
         if (ruleInstance === undefined) {
+            console.error(`Rule ${rule.type} not found`);
             return data;
         }
         if (type === ruleInstance.type) {

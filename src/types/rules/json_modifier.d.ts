@@ -1,7 +1,7 @@
 export {}
 
 declare global {
-    interface AppendMapData {
+    interface JsonModifierData {
         source?: string,
         data?: any,
         to: string

@@ -21,7 +21,7 @@ const currentFetch: FetchFunction = async (url, options) => {
     if (used_rules.length === 0) {
         return window.prefetch_originalFetch(url, options);
     }
-    console.log("Surfetch request", url, options);
+    console.log("Surfetch request", url, options, used_rules);
     ({url, options} = await prefetch.executeBeforeRules(used_rules, url, options));
     const response: Response = await window.prefetch_originalFetch(url, options);
     const result = await prefetch.executeAfterRules(

@@ -14,7 +14,11 @@ export function getUrl(url: RequestInfo | URL) {
     }
 }
 
-export function readPath(path: string): string[] {
+export function readPath(path: string|null): string[]|null {
+    if (path === null) {
+        return null;
+    }
+
     const all_path = path.split(".");
     return all_path.reduce((acc: string[], path: string) => {
         if (path.endsWith("\\\\")) {
@@ -37,7 +41,11 @@ export function readPath(path: string): string[] {
 }
 
 export function executePath(obj: any, path: string, create: boolean = false) {
-    return readPath(path).reduce((acc: any, key: string) => {
+    const path_list = readPath(path);
+    if (path_list === null) {
+        return obj;
+    }
+    return path_list.reduce((acc: any, key: string) => {
         if (create && acc[key] === undefined) {
             acc[key] = {};
         }
