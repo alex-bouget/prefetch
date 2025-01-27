@@ -1,5 +1,12 @@
 # Prefetch
 
+
+## Installation
+
+```bash
+pnpm install
+```
+
 Prefetch is an extensions for navigator (firefox/chromium [tested only on chrome]) who can modify request and response with predefined rule by this extensions.
 
 The settings is a list of config
