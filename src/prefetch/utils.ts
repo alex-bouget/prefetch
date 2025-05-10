@@ -40,15 +40,15 @@ export function readPath(path: string|null): string[]|null {
     }, [] as string[]);
 }
 
-export function executePath(obj: any, path: string, create: boolean = false) {
+export function executePath(obj: any, path: string) {
     const path_list = readPath(path);
     if (path_list === null) {
         return obj;
     }
     return path_list.reduce((acc: any, key: string) => {
-        if (create && acc[key] === undefined) {
+        if (!acc[key]) {
             acc[key] = {};
         }
-        return acc[key] || {};
+        return acc[key];
     }, obj);
 }

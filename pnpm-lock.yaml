@@ -7,6 +7,10 @@ settings:
 importers:
 
   .:
+    dependencies:
+      uglify-js:
+        specifier: ^3.19.3
+        version: 3.19.3
     devDependencies:
       '@eslint/js':
         specifier: ^9.19.0
@@ -1088,6 +1092,11 @@ packages:
   typescript@5.7.3:
     resolution: {integrity: sha512-84MVSjMEHP+FQRPy3pX9sTVV/INIex71s9TL2Gm5FG/WG1SqXeKyZ0k7/blY/4FdOzI12CBy1vGc4og/eus0fw==}
     engines: {node: '>=14.17'}
+    hasBin: true
+
+  uglify-js@3.19.3:
+    resolution: {integrity: sha512-v3Xu+yuwBXisp6QYTcH4UbH+xYJXqnq2m/LtQVWKWzYc1iehYnLixoQDN9FH6/j9/oybfd6W9Ghwkl8+UMKTKQ==}
+    engines: {node: '>=0.8.0'}
     hasBin: true
 
   umd@3.0.3:
@@ -2402,6 +2411,8 @@ snapshots:
       - supports-color
 
   typescript@5.7.3: {}
+
+  uglify-js@3.19.3: {}
 
   umd@3.0.3: {}
 

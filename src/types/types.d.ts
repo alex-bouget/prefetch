@@ -12,6 +12,7 @@ declare global {
     }
 
     interface Window {
+        prefetch_config: PrefetchConfig[];
         prefetch_originalFetch: FetchFunction;
     }
 

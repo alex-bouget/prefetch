@@ -12,7 +12,7 @@ abstract class JsonModifierRule<U> extends AbstractRule<JsonModifierData, U> {
         }
         let value;
         if (rule.source) {
-            value = await this.prefetch.originalFetch(rule.source).then((response) => response.json());
+            value = await window.prefetch_originalFetch(rule.source).then((response) => response.json());
         } else {
             value = rule.data;
             if (typeof value === "string") {

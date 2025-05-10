@@ -1,6 +1,6 @@
 {
 	"scripts": {
-		"build-content": "browserify ./src/prefetch/main.ts -o dist/build/pages/prefetch.js -p tsify",
+		"build-content": "browserify ./src/prefetch/main.ts -p tsify | uglifyjs -c > dist/build/pages/prefetch.js",
 		"build-content-scripted": "browserify ./src/content.ts -o dist/build/content.js -p tsify"
 	},
 	"devDependencies": {
@@ -14,5 +14,8 @@
 		"tsify": "^5.0.4",
 		"typescript": "^5.7.3",
 		"typescript-eslint": "^8.21.0"
+	},
+	"dependencies": {
+		"uglify-js": "^3.19.3"
 	}
 }

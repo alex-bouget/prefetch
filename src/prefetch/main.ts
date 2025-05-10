@@ -1,13 +1,10 @@
 import { Prefetch } from "./prefetch";
 import { getUrl, regex_filter } from "./utils";
 
-if (document.currentScript === null) {
-    console.error("Surfetch script not found");
-    // @ts-ignore
-    return;
-}
-
-const keeped_config: PrefetchConfig[] = JSON.parse(document.currentScript.getAttribute("data-config") || "[]");
+const keeped_config: PrefetchConfig[] =
+    JSON.parse(document.currentScript?.getAttribute("data-config") || "null") ||
+    window.prefetch_config ||
+    [];
 
 
 window.prefetch_originalFetch = window.fetch;
